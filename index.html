@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Marquee — The SEO + AEO autopilot for Shopify</title>
+<meta name="description" content="Marquee runs eight always-on agents that ship 50 hours of organic growth to your Shopify store every week. Built for Shopify. Half the price of an agency. 5x the work shipped." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafbfb;
+    --surface: #ffffff;
+    --surface-alt: #f6faf8;
+    --surface-alt-2: #f1f8f5;
+    --ink: #1a1a1a;
+    --ink-2: #4a4a4a;
+    --ink-3: #6d7175;
+    --ink-4: #8c9196;
+    --border: #e1e3e5;
+    --border-2: #d1d3d5;
+    --green: #008060;
+    --green-2: #006e52;
+    --green-deep: #003d29;
+    --green-soft: #aee9d1;
+    --green-tint: #e3f5ec;
+    --green-tint-2: #f1f8f5;
+    --shadow-sm: 0 1px 3px rgba(20,20,40,0.04);
+    --shadow-md: 0 4px 14px rgba(20,20,40,0.05);
+    --shadow-lg: 0 24px 60px rgba(20,20,40,0.06), 0 4px 12px rgba(20,20,40,0.04);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', -apple-system, system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.5; overflow-x: hidden; }
+  .ital { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -0.005em; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+  a { color: inherit; }
+
+  /* ───────── ticker ───────── */
+  .ticker { background: var(--ink); color: #fff; overflow: hidden; padding: 9px 0; font-size: 12px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.02em; }
+  .ticker-track { display: flex; gap: 48px; white-space: nowrap; animation: scrollX 60s linear infinite; }
+  .ticker-track span { display: inline-flex; align-items: center; gap: 12px; }
+  .ticker-track span::after { content: '·'; color: var(--green-soft); font-size: 14px; margin-left: 36px; }
+  @keyframes scrollX { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ───────── nav ───────── */
+  nav.top { position: sticky; top: 0; z-index: 50; background: rgba(250,251,251,0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+  nav.top .nav-row { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 18px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 26px; height: 26px; border-radius: 7px; background: var(--green); display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 14px; }
+  .nav-links { display: flex; gap: 30px; }
+  .nav-links a { color: var(--ink-2); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.15s; }
+  .nav-links a:hover { color: var(--ink); }
+  .badge-shopify { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; background: var(--green-tint); color: var(--green-2); border: 1px solid var(--green-soft); border-radius: 999px; font-size: 12px; font-weight: 600; }
+  .badge-shopify svg { width: 12px; height: 12px; }
+  .nav-cta { display: flex; align-items: center; gap: 12px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; white-space: nowrap; }
+  .btn-primary { background: var(--green); color: #fff; }
+  .btn-primary:hover { background: var(--green-2); }
+  .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--border-2); }
+  .btn-ghost:hover { border-color: var(--ink); }
+  .btn-ink { background: var(--ink); color: #fff; }
+  .btn-ink:hover { background: #000; }
+
+  /* ───────── hero ───────── */
+  .hero { padding: 96px 0 64px; }
+  .hero .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px; background: var(--green-tint); border: 1px solid var(--green-soft); color: var(--green-2); border-radius: 999px; font-size: 12px; font-weight: 600; margin-bottom: 28px; }
+  .hero .eyebrow .blip { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.4); } }
+  .hero h1 { font-size: 76px; line-height: 1.0; letter-spacing: -0.038em; font-weight: 600; max-width: 920px; margin-bottom: 26px; }
+  .hero h1 .ital { color: var(--green); }
+  .hero p.lead { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 640px; margin-bottom: 36px; }
+  .hero .cta { display: flex; gap: 12px; align-items: center; margin-bottom: 44px; flex-wrap: wrap; }
+  .meta-row { display: flex; gap: 32px; align-items: center; color: var(--ink-3); font-size: 13px; flex-wrap: wrap; }
+  .meta-row .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+  .meta-cell { display: flex; align-items: center; gap: 8px; }
+
+  /* hero product mockup (Polaris-style admin) */
+  .mock { margin-top: 64px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-lg); }
+  .mock-bar { display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--border); background: #fcfcfc; }
+  .mock-dots { display: flex; gap: 6px; }
+  .mock-dots span { width: 11px; height: 11px; border-radius: 50%; background: #e1e3e5; }
+  .mock-tab { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: #fff; border: 1px solid var(--border); border-radius: 6px; font-size: 12px; color: var(--ink-2); font-family: 'JetBrains Mono', monospace; }
+  .mock-tab svg { width: 12px; height: 12px; }
+  .mock-body { display: grid; grid-template-columns: 220px 1fr; min-height: 460px; }
+  .mock-side { background: #fbfbfb; border-right: 1px solid var(--border); padding: 18px 14px; }
+  .mock-side h4 { font-size: 11px; font-weight: 600; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.05em; margin: 14px 8px 8px; }
+  .mock-side h4:first-child { margin-top: 0; }
+  .mock-nav-item { display: flex; align-items: center; gap: 10px; padding: 7px 8px; font-size: 13px; color: var(--ink-2); border-radius: 6px; }
+  .mock-nav-item.active { background: #fff; color: var(--ink); border: 1px solid var(--border); font-weight: 500; }
+  .mock-nav-item .ico { width: 14px; height: 14px; border-radius: 4px; background: var(--ink-3); opacity: 0.4; }
+  .mock-nav-item.active .ico { background: var(--green); opacity: 1; }
+  .mock-content { padding: 28px 32px; }
+  .mock-h { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+  .mock-h h3 { font-size: 18px; font-weight: 600; }
+  .mock-pill { font-size: 11px; color: var(--green-2); background: var(--green-tint); border: 1px solid var(--green-soft); padding: 3px 8px; border-radius: 4px; font-weight: 600; }
+  .mock-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+  .mock-stat { padding: 16px; border: 1px solid var(--border); border-radius: 10px; }
+  .mock-stat .label { font-size: 11px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; font-weight: 500; }
+  .mock-stat .value { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; }
+  .mock-stat .delta { font-size: 12px; color: var(--green); font-weight: 600; margin-top: 4px; }
+  .mock-feed-row { display: flex; align-items: center; gap: 14px; padding: 12px; border: 1px solid var(--border); border-radius: 10px; margin-bottom: 8px; background: #fff; opacity: 0; animation: feedIn 0.5s cubic-bezier(0.2,0.7,0.2,1) forwards; }
+  .mock-feed-row:nth-child(1) { animation-delay: 0.2s; }
+  .mock-feed-row:nth-child(2) { animation-delay: 0.45s; }
+  .mock-feed-row:nth-child(3) { animation-delay: 0.7s; }
+  .mock-feed-row:nth-child(4) { animation-delay: 0.95s; }
+  @keyframes feedIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  .mock-feed-icon { width: 32px; height: 32px; border-radius: 8px; background: var(--green-tint); display: grid; place-items: center; color: var(--green); flex-shrink: 0; font-size: 14px; font-weight: 700; }
+  .mock-feed-text { flex: 1; min-width: 0; }
+  .mock-feed-title { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+  .mock-feed-sub { font-size: 12px; color: var(--ink-3); }
+  .mock-feed-time { font-size: 11px; color: var(--ink-3); flex-shrink: 0; font-family: 'JetBrains Mono', monospace; }
+
+  /* ───────── native install bar ───────── */
+  .native-bar { background: var(--green-tint-2); padding: 28px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .native-bar .row { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .native-text { display: flex; align-items: center; gap: 14px; font-size: 15px; color: var(--ink); font-weight: 500; }
+  .native-text svg { width: 26px; height: 30px; flex-shrink: 0; }
+
+  /* ───────── logo strip ───────── */
+  .logos { padding: 56px 0; background: var(--surface); border-bottom: 1px solid var(--border); }
+  .logos .label { text-align: center; font-size: 12px; color: var(--ink-3); margin-bottom: 28px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+  .logos-row { display: flex; justify-content: space-around; align-items: center; gap: 32px; flex-wrap: wrap; }
+  .logos-row span { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 24px; color: var(--ink-3); letter-spacing: -0.01em; transition: color 0.2s; }
+  .logos-row span:hover { color: var(--ink); }
+
+  /* ───────── stat strip ───────── */
+  .stat-strip { background: var(--ink); color: #fff; padding: 56px 0; }
+  .stat-strip-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .stat-strip-grid .cell { padding: 0 32px; border-right: 1px solid rgba(255,255,255,0.1); text-align: center; }
+  .stat-strip-grid .cell:last-child { border-right: none; }
+  .stat-strip-grid .num { font-size: 56px; font-weight: 600; letter-spacing: -0.03em; line-height: 1; margin-bottom: 12px; color: #fff; }
+  .stat-strip-grid .num .accent { color: var(--green-soft); }
+  .stat-strip-grid .label { font-size: 12px; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 500; }
+
+  /* ───────── section ───────── */
+  .section { padding: 96px 0; }
+  .section.alt { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .section.tinted { background: var(--green-tint-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .section.ink { background: var(--ink); color: #fff; }
+  .section-head { max-width: 760px; margin-bottom: 56px; }
+  .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+  .section-eyebrow { font-size: 13px; font-weight: 600; color: var(--green); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; display: inline-block; }
+  .section.ink .section-eyebrow { color: var(--green-soft); }
+  .section h2 { font-size: 56px; line-height: 1.04; letter-spacing: -0.03em; font-weight: 600; }
+  .section h2 .ital { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--green); }
+  .section.ink h2 .ital { color: var(--green-soft); }
+  .section .sub { font-size: 18px; color: var(--ink-2); margin-top: 18px; max-width: 600px; line-height: 1.5; }
+  .section.ink .sub { color: rgba(255,255,255,0.7); }
+  .section-head.center .sub { margin-left: auto; margin-right: auto; }
+
+  /* ───────── always-on manifesto ───────── */
+  .manifesto { padding: 140px 0; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .manifesto h2 { font-size: 88px; line-height: 0.98; letter-spacing: -0.04em; font-weight: 600; max-width: 1100px; }
+  .manifesto h2 .ital { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--green); }
+  .manifesto-sub { display: flex; align-items: center; gap: 18px; margin-top: 40px; font-size: 16px; color: var(--ink-2); }
+  .manifesto-sub .live-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green); animation: pulse 1.6s infinite; box-shadow: 0 0 0 4px rgba(0,128,96,0.18); }
+
+  /* ───────── agents marquee ───────── */
+  .agents-marquee { padding: 80px 0; background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; }
+  .agents-head { text-align: center; margin-bottom: 40px; }
+  .agents-head h3 { font-size: 13px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+  .agents-track { display: flex; gap: 16px; animation: scrollX 50s linear infinite; }
+  .agent-card { flex-shrink: 0; min-width: 280px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px 22px; display: flex; align-items: center; gap: 14px; }
+  .agent-card .ico { width: 40px; height: 40px; border-radius: 10px; background: var(--green); display: grid; place-items: center; color: #fff; font-weight: 600; font-size: 16px; flex-shrink: 0; font-family: 'Instrument Serif', serif; font-style: italic; }
+  .agent-card .ico.alt { background: var(--green-tint); color: var(--green-2); border: 1px solid var(--green-soft); }
+  .agent-card .name { font-weight: 600; font-size: 15px; margin-bottom: 2px; letter-spacing: -0.005em; }
+  .agent-card .desc { font-size: 12px; color: var(--ink-3); }
+
+  /* ───────── animated SERP showpiece ───────── */
+  .serp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .serp-mock { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px; box-shadow: var(--shadow-md); position: relative; }
+  .serp-input { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--bg); border: 1px solid var(--border); border-radius: 999px; font-size: 14px; color: var(--ink-2); margin-bottom: 20px; }
+  .serp-input svg { width: 16px; height: 16px; color: var(--ink-3); flex-shrink: 0; }
+  .serp-input .typed { display: inline-block; max-width: 0; overflow: hidden; white-space: nowrap; vertical-align: bottom; animation: typing 5s steps(40) infinite; }
+  @keyframes typing { 0%, 5% { max-width: 0; } 30%, 70% { max-width: 360px; } 95%, 100% { max-width: 0; } }
+  .serp-input .caret { display: inline-block; width: 2px; height: 14px; background: var(--green); animation: caret 0.8s steps(2) infinite; vertical-align: middle; margin-left: 2px; }
+  @keyframes caret { 50% { opacity: 0; } }
+  .serp-answer { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+  .serp-answer .badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: var(--green-tint); color: var(--green-2); border-radius: 6px; font-size: 11px; font-weight: 600; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.04em; border: 1px solid var(--green-soft); }
+  .serp-answer p { font-size: 14px; line-height: 1.65; color: var(--ink-2); }
+  .ai-cite { display: inline-flex; align-items: center; padding: 2px 8px; background: var(--green); color: #fff; border-radius: 4px; font-size: 11px; font-weight: 600; margin: 0 2px; animation: citePop 0.5s ease backwards; }
+  .ai-cite.c1 { animation-delay: 1.5s; }
+  .ai-cite.c2 { animation-delay: 2s; background: var(--green-deep); }
+  .ai-cite.c3 { animation-delay: 2.5s; background: var(--green-2); }
+  @keyframes citePop { from { transform: scale(0.5) translateY(4px); opacity: 0; } 70% { transform: scale(1.15) translateY(-2px); } to { transform: scale(1) translateY(0); opacity: 1; } }
+
+  /* ───────── pillars ───────── */
+  .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .pillars-grid .pillar:nth-child(4) { grid-column: 1 / 2; }
+  .pillars-grid .pillar:nth-child(5) { grid-column: 2 / 4; }
+  .pillar { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 32px; transition: all 0.25s; }
+  .pillar:hover { border-color: var(--green-soft); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .pillar-ico { width: 44px; height: 44px; border-radius: 10px; background: var(--green-tint); display: grid; place-items: center; color: var(--green); margin-bottom: 20px; border: 1px solid var(--green-soft); }
+  .pillar-ico svg { width: 20px; height: 20px; }
+  .pillar h3 { font-size: 20px; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.01em; }
+  .pillar p { color: var(--ink-2); font-size: 15px; line-height: 1.55; }
+  .pillar .features { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 6px; }
+  .pillar .features span { font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 3px 8px; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--ink-2); }
+
+  /* ───────── problem ───────── */
+  .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .problem-card { padding: 32px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; }
+  .problem-num { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 56px; color: var(--green); line-height: 1; margin-bottom: 20px; }
+  .problem-card h3 { font-size: 22px; font-weight: 600; margin-bottom: 12px; letter-spacing: -0.015em; }
+  .problem-card p { color: var(--ink-2); font-size: 15px; line-height: 1.6; }
+  .problem-card .anchor { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--green); font-weight: 500; }
+
+  /* ───────── strategy ───────── */
+  .strategy-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: start; }
+  .strategy-mini { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .strategy-mini .mini { padding: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+  .strategy-mini .mini:first-child { grid-column: 1 / 3; }
+  .strategy-mini .mini-ico { width: 36px; height: 36px; border-radius: 9px; background: var(--green-tint); border: 1px solid var(--green-soft); color: var(--green); display: grid; place-items: center; margin-bottom: 12px; }
+  .strategy-mini .mini-ico svg { width: 18px; height: 18px; }
+  .strategy-mini .mini h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; letter-spacing: -0.005em; }
+  .strategy-mini .mini p { font-size: 13px; color: var(--ink-3); line-height: 1.5; }
+
+  /* ───────── comparison table ───────── */
+  .comparison-table { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .comparison-row { display: grid; grid-template-columns: 1.4fr 1fr 1fr; align-items: center; }
+  .comparison-row.head { background: var(--green-tint-2); border-bottom: 1px solid var(--border); }
+  .comparison-row > div { padding: 18px 24px; border-right: 1px solid var(--border); font-size: 14px; }
+  .comparison-row > div:last-child { border-right: none; }
+  .comparison-row + .comparison-row { border-top: 1px solid var(--border); }
+  .comparison-row.head > div { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-3); }
+  .comparison-row.head .marquee-col { color: var(--green); }
+  .comparison-row .label { font-weight: 500; color: var(--ink); }
+  .comparison-row .agency-col { color: var(--ink-3); }
+  .comparison-row .marquee-col { background: var(--green-tint-2); font-weight: 500; color: var(--ink); }
+  .comparison-row .marquee-col::before { content: '✓'; display: inline-block; margin-right: 8px; color: var(--green); font-weight: 700; }
+  .comparison-row .agency-col::before { content: '–'; display: inline-block; margin-right: 8px; color: var(--ink-4); }
+
+  /* ───────── timeline ───────── */
+  .timeline-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; position: relative; }
+  .timeline-grid::before { content: ''; position: absolute; top: 22px; left: 5%; right: 5%; height: 1px; background: linear-gradient(90deg, var(--green-soft) 0%, var(--green) 50%, var(--green-soft) 100%); z-index: 0; }
+  .timeline-step { position: relative; z-index: 1; }
+  .timeline-num { width: 44px; height: 44px; border-radius: 50%; background: var(--surface); border: 1px solid var(--green-soft); color: var(--green); display: grid; place-items: center; font-weight: 600; font-size: 14px; margin-bottom: 18px; font-family: 'JetBrains Mono', monospace; }
+  .timeline-step h4 { font-size: 17px; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.01em; }
+  .timeline-step p { font-size: 13px; color: var(--ink-3); line-height: 1.55; }
+  .timeline-step .time { display: inline-block; margin-top: 12px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--green); background: var(--green-tint); border: 1px solid var(--green-soft); padding: 3px 8px; border-radius: 4px; font-weight: 600; }
+
+  /* ───────── pricing ───────── */
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1080px; margin: 0 auto; }
+  .price-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 36px 30px; transition: all 0.25s; position: relative; }
+  .price-card.featured { border-color: var(--green); box-shadow: 0 0 0 1px var(--green); }
+  .price-tag { position: absolute; top: -12px; left: 30px; background: var(--green); color: #fff; padding: 5px 12px; border-radius: 999px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+  .price-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-3); }
+  .price-card .price { font-size: 48px; font-weight: 600; letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px; color: var(--ink); }
+  .price-card .price .unit { font-size: 18px; color: var(--ink-3); font-weight: 500; }
+  .price-card .price-sub { font-size: 13px; color: var(--ink-3); margin-bottom: 28px; }
+  .price-card ul { list-style: none; margin-bottom: 28px; }
+  .price-card ul li { padding: 8px 0; font-size: 14px; color: var(--ink-2); display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+  .price-card ul li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+  .price-card .btn { width: 100%; justify-content: center; }
+
+  /* ───────── final CTA ───────── */
+  .final-cta { padding: 96px 0; }
+  .final-cta-card { background: var(--ink); color: #fff; border-radius: 20px; padding: 96px 64px; text-align: center; position: relative; overflow: hidden; }
+  .final-cta-card::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(0,128,96,0.4), transparent 60%); }
+  .final-cta-card::after { content: ''; position: absolute; bottom: -100px; left: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(0,128,96,0.25), transparent 60%); }
+  .final-cta-card .eyebrow-cta { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 999px; font-size: 12px; font-weight: 600; margin-bottom: 28px; position: relative; color: #fff; }
+  .final-cta-card .eyebrow-cta .blip { width: 6px; height: 6px; border-radius: 50%; background: var(--green-soft); animation: pulse 1.6s infinite; }
+  .final-cta-card h2 { color: #fff; font-size: 64px; line-height: 1.04; letter-spacing: -0.035em; margin-bottom: 20px; position: relative; font-weight: 600; }
+  .final-cta-card h2 .ital { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--green-soft); }
+  .final-cta-card p { color: rgba(255,255,255,0.7); font-size: 18px; max-width: 540px; margin: 0 auto 36px; position: relative; }
+  .final-cta-card .cta { display: inline-flex; gap: 12px; position: relative; }
+  .final-cta-card .btn-primary { background: var(--green); }
+  .final-cta-card .btn-primary:hover { background: var(--green-2); }
+  .final-cta-card .btn-ghost { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.15); color: #fff; }
+
+  /* chat bubbles */
+  .chat-row { display: flex; flex-direction: column; gap: 10px; max-width: 480px; margin: 0 auto 40px; position: relative; }
+  .bubble { padding: 12px 16px; border-radius: 16px; font-size: 14px; line-height: 1.4; max-width: 80%; opacity: 0; animation: bubbleIn 0.4s ease forwards; }
+  .bubble.user { background: rgba(255,255,255,0.1); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .bubble.bot { background: var(--green); color: #fff; align-self: flex-start; border-bottom-left-radius: 4px; font-weight: 500; }
+  .bubble:nth-child(1) { animation-delay: 0.1s; }
+  .bubble:nth-child(2) { animation-delay: 0.5s; }
+  .bubble:nth-child(3) { animation-delay: 0.9s; }
+  @keyframes bubbleIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ───────── wordmark ───────── */
+  .wordmark { padding: 80px 0 60px; background: var(--bg); overflow: hidden; }
+  .wordmark-text { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 220px; line-height: 0.9; letter-spacing: -0.04em; color: var(--green); white-space: nowrap; text-align: center; }
+
+  /* ───────── footer ───────── */
+  footer { padding: 64px 0 32px; background: var(--ink); color: rgba(255,255,255,0.7); }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  .footer-brand { font-weight: 600; font-size: 20px; color: #fff; display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .footer-brand .brand-mark { width: 24px; height: 24px; font-size: 13px; }
+  .footer-tagline { font-size: 14px; max-width: 280px; line-height: 1.5; }
+  footer h5 { font-size: 12px; color: #fff; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px; font-weight: 600; }
+  footer ul { list-style: none; }
+  footer ul li { padding: 5px 0; }
+  footer ul li a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px; transition: color 0.15s; }
+  footer ul li a:hover { color: #fff; }
+  .footer-bottom { padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; font-size: 12px; flex-wrap: wrap; gap: 16px; }
+
+  /* ───────── reveal ───────── */
+  .reveal { opacity: 0; transform: translateY(20px); transition: all 0.7s cubic-bezier(0.2,0.7,0.2,1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* ───────── responsive ───────── */
+  @media (max-width: 980px) {
+    .hero h1 { font-size: 48px; }
+    .section h2, .final-cta-card h2 { font-size: 38px; }
+    .manifesto h2 { font-size: 48px; }
+    .wordmark-text { font-size: 100px; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .pillars-grid .pillar:nth-child(4), .pillars-grid .pillar:nth-child(5) { grid-column: auto; }
+    .problem-grid, .pricing-grid, .timeline-grid { grid-template-columns: 1fr; }
+    .timeline-grid::before { display: none; }
+    .strategy-grid, .serp-grid { grid-template-columns: 1fr; gap: 32px; }
+    .stat-strip-grid { grid-template-columns: 1fr 1fr; }
+    .stat-strip-grid .cell { padding: 24px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .comparison-row { grid-template-columns: 1fr; }
+    .comparison-row > div { border-right: none; border-bottom: 1px solid var(--border); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .mock-body { grid-template-columns: 1fr; }
+    .mock-side { display: none; }
+    .final-cta-card { padding: 56px 32px; }
+  }
+  @media (max-width: 540px) {
+    .hero h1 { font-size: 38px; }
+    .section h2, .manifesto h2, .final-cta-card h2 { font-size: 30px; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ TICKER ═══════════════════ -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>● LIVE — 52.4 hrs of growth shipped to your Shopify store this week</span>
+    <span>· +38 AI citations earned in ChatGPT, Perplexity, Claude, Gemini</span>
+    <span>· 8 always-on agents writing, optimizing, publishing — right now</span>
+    <span>· Built for Shopify · One-click install from the App Store</span>
+    <span>· 147 PDPs optimized for AI search this week — automatically</span>
+    <span>· Half the price of a Shopify SEO agency. 5× the work shipped.</span>
+    <span>● LIVE — 52.4 hrs of growth shipped to your Shopify store this week</span>
+    <span>· +38 AI citations earned in ChatGPT, Perplexity, Claude, Gemini</span>
+    <span>· 8 always-on agents writing, optimizing, publishing — right now</span>
+    <span>· Built for Shopify · One-click install from the App Store</span>
+    <span>· 147 PDPs optimized for AI search this week — automatically</span>
+    <span>· Half the price of a Shopify SEO agency. 5× the work shipped.</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav class="top">
+  <div class="container nav-row">
+    <a class="brand" href="#">
+      <div class="brand-mark">M</div>
+      Marquee
+      <span class="badge-shopify">
+        <svg viewBox="0 0 109 124" xmlns="http://www.w3.org/2000/svg"><path fill="#008060" d="M74.7 14.9s-1.4.4-3.6 1.1c-.4-1.2-1-2.6-1.7-4-2.4-4.6-5.9-7-10.1-7h-.8c-.1-.1-.2-.3-.4-.4C56.3 1.9 53.7 0 50.5 0c-6.2.2-12.4 4.7-17.4 12.7-3.5 5.6-6.2 12.7-7 18.2-7.1 2.2-12.1 3.7-12.2 3.8-3.6 1.1-3.7 1.2-4.2 4.6-.3 2.6-9.7 75.4-9.7 75.4l79 13.7V14.7c-.4 0-.4 0-3.3.2z"/></svg>
+        Built for Shopify
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="#problem">Why Marquee</a>
+      <a href="#agents">Agents</a>
+      <a href="#pillars">Product</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#how">How it works</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="#">Sign in</a>
+      <a class="btn btn-primary" href="#">Start free →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow"><span class="blip"></span> Eight always-on agents · live in your Shopify admin</div>
+      <h1>50 hours of organic growth, <span class="ital">shipped to your Shopify store every week.</span></h1>
+      <p class="lead">Marquee runs eight always-on agents that keyword-research, write, optimize, and publish across SEO and AI search — directly inside your Shopify admin. Half the price of an agency. 5× the output.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#">Install on Shopify <span style="font-size:16px">→</span></a>
+        <a class="btn btn-ghost" href="#">Book a 20-min demo</a>
+      </div>
+      <div class="meta-row">
+        <div class="meta-cell"><span class="dot"></span> 14-day free trial</div>
+        <div class="meta-cell"><span class="dot"></span> No credit card</div>
+        <div class="meta-cell"><span class="dot"></span> Live in &lt; 5 minutes</div>
+      </div>
+    </div>
+
+    <div class="mock reveal">
+      <div class="mock-bar">
+        <div class="mock-dots"><span></span><span></span><span></span></div>
+        <div class="mock-tab">
+          <svg viewBox="0 0 109 124" xmlns="http://www.w3.org/2000/svg"><path fill="#95bf47" d="M74.7 14.9s-1.4.4-3.6 1.1c-.4-1.2-1-2.6-1.7-4-2.4-4.6-5.9-7-10.1-7h-.8c-.1-.1-.2-.3-.4-.4C56.3 1.9 53.7 0 50.5 0c-6.2.2-12.4 4.7-17.4 12.7-3.5 5.6-6.2 12.7-7 18.2-7.1 2.2-12.1 3.7-12.2 3.8-3.6 1.1-3.7 1.2-4.2 4.6-.3 2.6-9.7 75.4-9.7 75.4l79 13.7V14.7c-.4 0-.4 0-3.3.2z"/></svg>
+          your-store.myshopify.com / apps / marquee
+        </div>
+      </div>
+      <div class="mock-body">
+        <aside class="mock-side">
+          <h4>Marquee</h4>
+          <div class="mock-nav-item active"><span class="ico"></span> Overview</div>
+          <div class="mock-nav-item"><span class="ico"></span> Keyword research</div>
+          <div class="mock-nav-item"><span class="ico"></span> Content engine</div>
+          <div class="mock-nav-item"><span class="ico"></span> AEO + GEO</div>
+          <div class="mock-nav-item"><span class="ico"></span> Technical SEO</div>
+          <h4>This week</h4>
+          <div class="mock-nav-item"><span class="ico"></span> Authority</div>
+          <div class="mock-nav-item"><span class="ico"></span> Competitor</div>
+          <div class="mock-nav-item"><span class="ico"></span> Reports</div>
+        </aside>
+        <div class="mock-content">
+          <div class="mock-h">
+            <h3>This week's shipped work</h3>
+            <span class="mock-pill">● Live · 8 agents</span>
+          </div>
+          <div class="mock-stats">
+            <div class="mock-stat">
+              <div class="label">Hours shipped</div>
+              <div class="value">52.4</div>
+              <div class="delta">+12% vs last wk</div>
+            </div>
+            <div class="mock-stat">
+              <div class="label">Pages updated</div>
+              <div class="value">147</div>
+              <div class="delta">+24 from queue</div>
+            </div>
+            <div class="mock-stat">
+              <div class="label">AI citations</div>
+              <div class="value">38</div>
+              <div class="delta">ChatGPT · Perplexity</div>
+            </div>
+          </div>
+          <div class="mock-feed-row">
+            <div class="mock-feed-icon">K</div>
+            <div class="mock-feed-text">
+              <div class="mock-feed-title">Keyword cluster · "merino base layers" → 24 long-tail variants</div>
+              <div class="mock-feed-sub">Mapped to 6 collection pages · ready for publish</div>
+            </div>
+            <div class="mock-feed-time">2m ago</div>
+          </div>
+          <div class="mock-feed-row">
+            <div class="mock-feed-icon">C</div>
+            <div class="mock-feed-text">
+              <div class="mock-feed-title">Content · "How to layer for sub-zero hiking"</div>
+              <div class="mock-feed-sub">2,200 words · 7 internal links · scheduled for Tue</div>
+            </div>
+            <div class="mock-feed-time">14m ago</div>
+          </div>
+          <div class="mock-feed-row">
+            <div class="mock-feed-icon">A</div>
+            <div class="mock-feed-text">
+              <div class="mock-feed-title">AEO · Optimized 14 PDPs for ChatGPT shopping queries</div>
+              <div class="mock-feed-sub">Schema, FAQ, comparison blocks · pushed to live</div>
+            </div>
+            <div class="mock-feed-time">38m ago</div>
+          </div>
+          <div class="mock-feed-row">
+            <div class="mock-feed-icon">T</div>
+            <div class="mock-feed-text">
+              <div class="mock-feed-title">Technical · 22 schema fixes auto-applied across PDPs</div>
+              <div class="mock-feed-sub">Product, Review, FAQ schema · indexed</div>
+            </div>
+            <div class="mock-feed-time">1h ago</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ NATIVE INSTALL BAR ═══════════════════ -->
+<section class="native-bar">
+  <div class="container row">
+    <div class="native-text">
+      <svg viewBox="0 0 109 124" xmlns="http://www.w3.org/2000/svg"><path fill="#95bf47" d="M74.7 14.9s-1.4.4-3.6 1.1c-.4-1.2-1-2.6-1.7-4-2.4-4.6-5.9-7-10.1-7h-.8c-.1-.1-.2-.3-.4-.4C56.3 1.9 53.7 0 50.5 0c-6.2.2-12.4 4.7-17.4 12.7-3.5 5.6-6.2 12.7-7 18.2-7.1 2.2-12.1 3.7-12.2 3.8-3.6 1.1-3.7 1.2-4.2 4.6-.3 2.6-9.7 75.4-9.7 75.4l79 13.7V14.7c-.4 0-.4 0-3.3.2z"/><path fill="#5e8e3e" d="M77.8 15c-.3 0-2.1.4-2.1.4s-1.5 1.5-3 3l-3.6 67.7L107 124V14.6s-1-.1-2.1-.1c-1.1 0-1.6 0-7.6.5z"/><path fill="#fff" d="M67.6 39.5l-3.7 13.7s-4-1.8-8.8-1.5c-7 .4-7.1 4.8-7 5.9.4 6 16.1 7.3 17 21.4.7 11-5.9 18.6-15.3 19.2-11.3.7-17.6-6-17.6-6l2.4-10.2s6.3 4.7 11.3 4.4c3.3-.2 4.5-2.9 4.4-4.8-.5-7.8-13.3-7.4-14.1-20.3-.7-10.8 6.4-21.7 21.9-22.7 6-.4 9.5 1.9 9.5 1.9z"/></svg>
+      One-click install from the Shopify App Store. Live inside your admin in five minutes.
+    </div>
+    <a class="btn btn-primary" href="#">Install on Shopify →</a>
+  </div>
+</section>
+
+<!-- ═══════════════════ LOGOS ═══════════════════ -->
+<section class="logos">
+  <div class="container">
+    <div class="label">Built for the Shopify stores winning the next era of search</div>
+    <div class="logos-row">
+      <span>Allbirds</span>
+      <span>Rothy's</span>
+      <span>Glossier</span>
+      <span>Outdoor Voices</span>
+      <span>Fishwife</span>
+      <span>Vegemite</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ STAT STRIP ═══════════════════ -->
+<section class="stat-strip">
+  <div class="container">
+    <div class="stat-strip-grid">
+      <div class="cell">
+        <div class="num">50<span class="accent">hrs</span></div>
+        <div class="label">Shipped per week</div>
+      </div>
+      <div class="cell">
+        <div class="num">5<span class="accent">×</span></div>
+        <div class="label">Agency throughput</div>
+      </div>
+      <div class="cell">
+        <div class="num">50<span class="accent">%</span></div>
+        <div class="label">Lower cost</div>
+      </div>
+      <div class="cell">
+        <div class="num">0</div>
+        <div class="label">Strategists ghosted</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ MANIFESTO ═══════════════════ -->
+<section class="manifesto">
+  <div class="container">
+    <h2 class="reveal">The agency works <span class="ital">9 to 5.</span><br/>Marquee works <span class="ital">always.</span></h2>
+    <div class="manifesto-sub reveal"><span class="live-dot"></span> Eight agents currently shipping work to Shopify stores in 14 countries.</div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PROBLEM ═══════════════════ -->
+<section class="section" id="problem">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">The problem</div>
+      <h2>Your Shopify SEO agency is <span class="ital">quietly bleeding</span> your P&amp;L.</h2>
+      <p class="sub">Three line items in your monthly invoice. None of them show up in your traffic graph.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card reveal">
+        <div class="problem-num">01</div>
+        <h3>Agency rates. Freelancer output.</h3>
+        <p>$8k–$12k a month for 12 deliverables. The work is offshored. The strategist disappears at month two.</p>
+        <div class="anchor">$94–$140 effective hourly rate</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-num">02</div>
+        <h3>Keyword research takes 10 days.</h3>
+        <p>By the time the spreadsheet lands in your inbox, your competitor has shipped the page, the ranking, and the PDPs.</p>
+        <div class="anchor">10–14 days · every cluster</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-num">03</div>
+        <h3>You're invisible in AI search.</h3>
+        <p>Less than 8% of agencies track AEO. Category answers in ChatGPT, Perplexity, and AI Overviews go to whoever shows up first.</p>
+        <div class="anchor">&lt; 8% of agencies cover AEO</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ STRATEGY ═══════════════════ -->
+<section class="section tinted">
+  <div class="container">
+    <div class="strategy-grid">
+      <div class="reveal">
+        <div class="section-eyebrow">The wedge</div>
+        <h2 style="font-size:48px">One operating system for <span class="ital">organic growth</span> on Shopify.</h2>
+        <p class="sub">Marquee is not another agency. Not another tool. It's eight specialist agents that read your Shopify catalog, your traffic, your competitors, and your AI mentions — and ship the work straight to your store.</p>
+        <div class="cta" style="margin-top:32px">
+          <a class="btn btn-primary" href="#">See the agents →</a>
+        </div>
+      </div>
+      <div class="strategy-mini reveal">
+        <div class="mini" style="grid-column:1/3">
+          <div class="mini-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l4 4L21 4"/></svg></div>
+          <h4>Technical SEO, automated</h4>
+          <p>Schema, sitemaps, page speed, Core Web Vitals, indexation — fixed continuously, not monthly.</p>
+        </div>
+        <div class="mini">
+          <div class="mini-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <h4>Content engine</h4>
+          <p>2,000+ word collection pages, PDP enrichment, blog posts — written and ready to publish.</p>
+        </div>
+        <div class="mini">
+          <div class="mini-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <h4>AEO + GEO</h4>
+          <p>Optimized for ChatGPT, Perplexity, Claude, Gemini, and Google AI Overviews citations.</p>
+        </div>
+        <div class="mini">
+          <div class="mini-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <h4>Editorial authority</h4>
+          <p>Author bios, expertise signals, citations, structured data — credibility at scale.</p>
+        </div>
+        <div class="mini">
+          <div class="mini-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <h4>Live dashboards</h4>
+          <p>Watch your traffic, AI citations, rankings, and competitor moves in one Shopify-native dashboard.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ AGENTS MARQUEE ═══════════════════ -->
+<section class="agents-marquee" id="agents">
+  <div class="agents-head">
+    <h3>Eight agents · running 24/7 · across every Shopify store on Marquee</h3>
+  </div>
+  <div class="agents-track">
+    <div class="agent-card"><div class="ico">K</div><div><div class="name">Keyword Atlas</div><div class="desc">Maps clusters to your catalog</div></div></div>
+    <div class="agent-card"><div class="ico alt">C</div><div><div class="name">Content Forge</div><div class="desc">Writes long-form, on-brand</div></div></div>
+    <div class="agent-card"><div class="ico">T</div><div><div class="name">Technical Hawk</div><div class="desc">Schema, speed, indexation</div></div></div>
+    <div class="agent-card"><div class="ico alt">A</div><div><div class="name">AEO Optimizer</div><div class="desc">ChatGPT, Perplexity, Claude</div></div></div>
+    <div class="agent-card"><div class="ico">G</div><div><div class="name">GEO Beacon</div><div class="desc">Local + commerce visibility</div></div></div>
+    <div class="agent-card"><div class="ico alt">E</div><div><div class="name">Editorial Critic</div><div class="desc">Brand voice, fact-check</div></div></div>
+    <div class="agent-card"><div class="ico">S</div><div><div class="name">Spy Lens</div><div class="desc">Competitor watch + alerts</div></div></div>
+    <div class="agent-card"><div class="ico alt">R</div><div><div class="name">Reporter</div><div class="desc">Weekly Slack/Email digest</div></div></div>
+    <div class="agent-card"><div class="ico">K</div><div><div class="name">Keyword Atlas</div><div class="desc">Maps clusters to your catalog</div></div></div>
+    <div class="agent-card"><div class="ico alt">C</div><div><div class="name">Content Forge</div><div class="desc">Writes long-form, on-brand</div></div></div>
+    <div class="agent-card"><div class="ico">T</div><div><div class="name">Technical Hawk</div><div class="desc">Schema, speed, indexation</div></div></div>
+    <div class="agent-card"><div class="ico alt">A</div><div><div class="name">AEO Optimizer</div><div class="desc">ChatGPT, Perplexity, Claude</div></div></div>
+    <div class="agent-card"><div class="ico">G</div><div><div class="name">GEO Beacon</div><div class="desc">Local + commerce visibility</div></div></div>
+    <div class="agent-card"><div class="ico alt">E</div><div><div class="name">Editorial Critic</div><div class="desc">Brand voice, fact-check</div></div></div>
+    <div class="agent-card"><div class="ico">S</div><div><div class="name">Spy Lens</div><div class="desc">Competitor watch + alerts</div></div></div>
+    <div class="agent-card"><div class="ico alt">R</div><div><div class="name">Reporter</div><div class="desc">Weekly Slack/Email digest</div></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ ANIMATED SERP ═══════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="serp-grid">
+      <div class="reveal">
+        <div class="section-eyebrow">AEO showpiece</div>
+        <h2>Get cited inside <span class="ital">ChatGPT, Perplexity, Claude, Gemini</span>, and Google AI Overviews.</h2>
+        <p class="sub">Your buyers don't ask Google anymore — they ask the AI. Marquee structures every page so your store shows up in the answer, not the footnote.</p>
+        <div class="cta" style="margin-top:32px">
+          <a class="btn btn-primary" href="#">See AEO in action →</a>
+        </div>
+      </div>
+      <div class="serp-mock reveal">
+        <div class="serp-input">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <span class="typed">best merino base layer for sub-zero hiking</span>
+          <span class="caret"></span>
+        </div>
+        <div class="serp-answer">
+          <div class="badge">⚡ AI Answer</div>
+          <p>For sub-zero conditions, the most cited brands among performance hikers are <span class="ai-cite c1">Smartwool</span>, <span class="ai-cite c2">Icebreaker</span>, and emerging direct-to-consumer label <span class="ai-cite c3">Kora Outdoor</span>. Reviewers consistently flag the 250 gsm weight as the optimal balance between warmth and breathability for layering.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PILLARS ═══════════════════ -->
+<section class="section alt" id="pillars">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">The stack</div>
+      <h2>Five pillars. <span class="ital">One Shopify-native</span> growth engine.</h2>
+      <p class="sub">Every pillar runs continuously. Every output ships to your Shopify admin. No spreadsheets, no Looms, no monthly status calls.</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar reveal">
+        <div class="pillar-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>Technical SEO</h3>
+        <p>Schema, sitemaps, Core Web Vitals, indexation, internal linking — automated and continuous.</p>
+        <div class="features"><span>Schema.org</span><span>CWV</span><span>Sitemaps</span><span>Indexation</span></div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <h3>Content Engine</h3>
+        <p>Long-form collection pages, PDP enrichment, evergreen blog. 2,000+ words, on-brand, ready to publish.</p>
+        <div class="features"><span>Collections</span><span>PDPs</span><span>Blog</span><span>Brand voice</span></div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3>AEO + GEO</h3>
+        <p>Optimized for ChatGPT, Perplexity, Claude, Gemini, AI Overviews. Local + commerce signals everywhere.</p>
+        <div class="features"><span>ChatGPT</span><span>Perplexity</span><span>Claude</span><span>Gemini</span></div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Editorial Authority</h3>
+        <p>Author bios, expertise signals, citations, structured data. Build credibility AI search rewards.</p>
+        <div class="features"><span>E-E-A-T</span><span>Bylines</span><span>Citations</span></div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+        <h3>Dashboards + Competitor</h3>
+        <p>Live Shopify-native view of traffic, citations, rankings, and competitor moves. One tab. One dashboard.</p>
+        <div class="features"><span>Traffic</span><span>Rankings</span><span>Citations</span><span>Competitor</span><span>Slack alerts</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ COMPARISON ═══════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="section-eyebrow">Marquee vs your agency</div>
+      <h2>Same outcome. <span class="ital">Half the price.</span> 5× the velocity.</h2>
+    </div>
+    <div class="comparison-table reveal">
+      <div class="comparison-row head"><div>Capability</div><div class="agency-col">Typical Shopify SEO Agency</div><div class="marquee-col">Marquee</div></div>
+      <div class="comparison-row"><div class="label">Monthly cost</div><div class="agency-col">$8,000 – $12,000</div><div class="marquee-col">$1,990 – $4,990</div></div>
+      <div class="comparison-row"><div class="label">Hours of work shipped per week</div><div class="agency-col">8 – 12</div><div class="marquee-col">50+</div></div>
+      <div class="comparison-row"><div class="label">Keyword research turnaround</div><div class="agency-col">10 – 14 days</div><div class="marquee-col">Continuous · live</div></div>
+      <div class="comparison-row"><div class="label">Content output</div><div class="agency-col">3 – 4 articles / month</div><div class="marquee-col">Unlimited · on-brand</div></div>
+      <div class="comparison-row"><div class="label">Technical SEO fixes</div><div class="agency-col">Quarterly audit</div><div class="marquee-col">Continuous, autopilot</div></div>
+      <div class="comparison-row"><div class="label">AEO (ChatGPT, Perplexity)</div><div class="agency-col">Not offered</div><div class="marquee-col">Native · always-on</div></div>
+      <div class="comparison-row"><div class="label">AI Overviews optimization</div><div class="agency-col">Not offered</div><div class="marquee-col">Built in</div></div>
+      <div class="comparison-row"><div class="label">Shopify admin integration</div><div class="agency-col">No</div><div class="marquee-col">Native · one-click install</div></div>
+      <div class="comparison-row"><div class="label">Live dashboard</div><div class="agency-col">Slack screenshots</div><div class="marquee-col">In-Shopify dashboard</div></div>
+      <div class="comparison-row"><div class="label">Competitor monitoring</div><div class="agency-col">Quarterly slide</div><div class="marquee-col">Real-time · Slack alerts</div></div>
+      <div class="comparison-row"><div class="label">Reporting cadence</div><div class="agency-col">Monthly deck</div><div class="marquee-col">Live + weekly digest</div></div>
+      <div class="comparison-row"><div class="label">Strategist continuity</div><div class="agency-col">Churn at month 2</div><div class="marquee-col">Same agents, every week</div></div>
+      <div class="comparison-row"><div class="label">Brand voice training</div><div class="agency-col">Junior copywriter</div><div class="marquee-col">Trained on your catalog</div></div>
+      <div class="comparison-row"><div class="label">PDP optimization at scale</div><div class="agency-col">Manual</div><div class="marquee-col">Bulk · auto-enriched</div></div>
+      <div class="comparison-row"><div class="label">Schema + structured data</div><div class="agency-col">Add-on</div><div class="marquee-col">Built in · automatic</div></div>
+      <div class="comparison-row"><div class="label">Setup time</div><div class="agency-col">3 – 6 weeks</div><div class="marquee-col">Under 5 minutes</div></div>
+      <div class="comparison-row"><div class="label">Lock-in</div><div class="agency-col">12-month contract</div><div class="marquee-col">Cancel anytime</div></div>
+      <div class="comparison-row"><div class="label">Onboarding</div><div class="agency-col">Strategy workshops</div><div class="marquee-col">Connect store · we read it</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ HOW IT WORKS ═══════════════════ -->
+<section class="section tinted" id="how">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="section-eyebrow">How it works</div>
+      <h2>Five steps. <span class="ital">One afternoon.</span> Live forever.</h2>
+    </div>
+    <div class="timeline-grid">
+      <div class="timeline-step reveal">
+        <div class="timeline-num">01</div>
+        <h4>Install</h4>
+        <p>One-click install from the Shopify App Store. Connect your store and brand voice.</p>
+        <div class="time">5 min</div>
+      </div>
+      <div class="timeline-step reveal">
+        <div class="timeline-num">02</div>
+        <h4>Read</h4>
+        <p>Marquee reads your catalog, traffic, competitors, and existing AI mentions.</p>
+        <div class="time">Day 1</div>
+      </div>
+      <div class="timeline-step reveal">
+        <div class="timeline-num">03</div>
+        <h4>Plan</h4>
+        <p>Eight agents propose a 90-day SEO + AEO plan. Approve, edit, or auto-run.</p>
+        <div class="time">Day 1</div>
+      </div>
+      <div class="timeline-step reveal">
+        <div class="timeline-num">04</div>
+        <h4>Ship</h4>
+        <p>Content, technical fixes, schema, AEO, and competitor responses ship to your Shopify admin.</p>
+        <div class="time">Continuous</div>
+      </div>
+      <div class="timeline-step reveal">
+        <div class="timeline-num">05</div>
+        <h4>Compound</h4>
+        <p>Every week your traffic, AI citations, and rankings grow. Watch the dashboard.</p>
+        <div class="time">Forever</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PRICING ═══════════════════ -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="section-eyebrow">Pricing</div>
+      <h2>One subscription. <span class="ital">No retainer.</span> No surprise invoice.</h2>
+      <p class="sub">14-day free trial on every plan. Cancel anytime, in two clicks, from your Shopify admin.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <h3>Starter</h3>
+        <div class="price">$1,990<span class="unit">/mo</span></div>
+        <div class="price-sub">For Shopify stores under $1M GMV</div>
+        <ul>
+          <li>4 always-on agents</li>
+          <li>Up to 50 pages optimized / mo</li>
+          <li>Technical SEO autopilot</li>
+          <li>Weekly Slack digest</li>
+          <li>Email support</li>
+        </ul>
+        <a class="btn btn-ghost" href="#">Start free trial</a>
+      </div>
+      <div class="price-card featured reveal">
+        <div class="price-tag">Most popular</div>
+        <h3>Growth</h3>
+        <div class="price">$3,490<span class="unit">/mo</span></div>
+        <div class="price-sub">For Shopify stores $1M – $20M GMV</div>
+        <ul>
+          <li>All 8 agents · always-on</li>
+          <li>Unlimited pages, content, PDPs</li>
+          <li>Full AEO + GEO suite</li>
+          <li>Real-time competitor monitoring</li>
+          <li>Live in-Shopify dashboard</li>
+          <li>Priority support · Slack channel</li>
+        </ul>
+        <a class="btn btn-primary" href="#">Start free trial →</a>
+      </div>
+      <div class="price-card reveal">
+        <h3>Authority</h3>
+        <div class="price">$4,990<span class="unit">/mo</span></div>
+        <div class="price-sub">For Shopify Plus stores · $20M+ GMV</div>
+        <ul>
+          <li>Everything in Growth</li>
+          <li>Custom agent training</li>
+          <li>Multi-region · multi-language</li>
+          <li>Dedicated growth strategist</li>
+          <li>Quarterly executive review</li>
+          <li>White-glove onboarding</li>
+        </ul>
+        <a class="btn btn-ghost" href="#">Talk to sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FINAL CTA ═══════════════════ -->
+<section class="final-cta">
+  <div class="container">
+    <div class="final-cta-card">
+      <div class="eyebrow-cta"><span class="blip"></span> Live in your Shopify admin in 5 minutes</div>
+      <h2>Ship 50 hours of growth <span class="ital">this week.</span></h2>
+      <p>Install on Shopify in under five minutes. We start shipping work the same day. Cancel anytime.</p>
+      <div class="chat-row">
+        <div class="bubble user">how soon can marquee start shipping work?</div>
+        <div class="bubble bot">Same day. We're shipping your first 6 hours of work right now.</div>
+        <div class="bubble user">install ↗</div>
+      </div>
+      <div class="cta">
+        <a class="btn btn-primary" href="#">Install on Shopify →</a>
+        <a class="btn btn-ghost" href="#">Book a 20-min demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ WORDMARK ═══════════════════ -->
+<section class="wordmark">
+  <div class="wordmark-text">Marquee</div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <div class="brand-mark">M</div>
+          Marquee
+        </div>
+        <div class="footer-tagline">The SEO + AEO autopilot for Shopify. Built for Shopify. Shipped from ANZ.</div>
+      </div>
+      <div>
+        <h5>Product</h5>
+        <ul>
+          <li><a href="#agents">Agents</a></li>
+          <li><a href="#pillars">Pillars</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">Manifesto</a></li>
+          <li><a href="#">Customers</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="#">AEO playbook</a></li>
+          <li><a href="#">Shopify SEO guide</a></li>
+          <li><a href="#">Changelog</a></li>
+          <li><a href="#">API</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Marquee · Built for Shopify · Made in ANZ</div>
+      <div>Terms · Privacy · Security</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+</script>
+</body>
+</html>
